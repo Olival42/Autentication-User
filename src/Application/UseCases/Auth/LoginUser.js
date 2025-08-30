@@ -1,4 +1,4 @@
-const UserOutput = require("../../../Application/DTOs/UserOutput");
+const AuthOutput = require("../../DTOs/AuthOutput");
 const InvalidCredentialsException = require("../../../Domain/Exceptions/InvalidCredentialsException");
 const User = require("../../../Domain/User/User");
 
@@ -16,26 +16,24 @@ class LoginUser {
     }
 
     const user = new User(
-      existingUserData.name?.value || existingUserData.name, // pega string correta
+      existingUserData.name?.value || existingUserData.name,
       existingUserData.email?.value || existingUserData.email,
-      existingUserData.password, // hash do DB
+      existingUserData.password,
       existingUserData.id,
-      true // indica que já é hash
+      true
     );
 
-    // Valida senha
     const isPasswordValid = await user.comparePassword(input.password);
     if (!isPasswordValid) {
       throw new InvalidCredentialsException("Invalid email or password.");
     }
 
-    // Gera token JWT
     const token = this.jwtProvider.generateToken({
       userId: user.id,
       email: user.email.value,
     });
 
-    return new UserOutput(token, {
+    return new AuthOutput(token, {
       id: user.id,
       name: user.name instanceof Object ? user.name.value : user.name,
       email: user.email instanceof Object ? user.email.value : user.email,

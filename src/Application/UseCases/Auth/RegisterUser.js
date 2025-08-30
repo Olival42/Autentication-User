@@ -1,4 +1,3 @@
-// src/Application/UseCases/Auth/RegisterUser.js
 const UserOutput = require('../../DTOs/UserOutput');
 const Password = require('src/Domain/User/ValueObjects/Password');
 
@@ -27,9 +26,7 @@ class RegisterUser {
             toObject: () => userForDB
         });
 
-        const token = this.jwtProvider.generateToken({ id: savedUser.id });
-
-        return new UserOutput(token, savedUser);
+        return new UserOutput(savedUser);
     }
 }
 

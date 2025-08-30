@@ -1,14 +1,16 @@
 class UserOutput {
-    constructor(token, user) {
-        if (!user) throw new Error("User is undefined");
+  constructor(user) {
+    if (!user) throw new Error("User is undefined");
 
-        this.token = token;
-        this.user = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-        };
-    }
+    const plainUser =
+      typeof user.toObject === "function" ? user.toObject() : user;
+
+    this.user = {
+      id: plainUser.id,
+      name: plainUser.name.value,
+      email: plainUser.email.value,
+    };
+  }
 }
 
 module.exports = UserOutput;

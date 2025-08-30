@@ -1,6 +1,9 @@
 class Name {
     constructor(value) {
-        this.name = value.trim();
+        if (!value || typeof value !== "string") {
+            throw new Error("Name must be a non-empty string");
+        }
+        this.value = value.trim();
     }
 }
 
