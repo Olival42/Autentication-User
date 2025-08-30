@@ -15,6 +15,7 @@ async function startServer() {
         app.listen(PORT, () => {
             console.log(`Server running on port ${PORT}`);
             console.log(`Access API at http://localhost:${PORT}`);
+            console.log(`Swagger disponível em http://localhost:${PORT}/api-docs`);
         });
     } catch (error) {
         console.error('Failed to start server:', error);

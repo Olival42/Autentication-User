@@ -1,12 +1,24 @@
-# docs/swagger.yml
-
 openapi: 3.0.0
 info:
   title: Login API
   version: 1.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+tags:
+  - name: Auth
+    description: Endpoints de autenticação
+
 paths:
   /auth/register:
     post:
+      tags:
+        - Auth
       summary: Register a new user
       requestBody:
         required: true
@@ -17,15 +29,23 @@ paths:
               properties:
                 name:
                   type: string
+                  example: John Doe
                 email:
                   type: string
+                  example: john@example.com
                 password:
                   type: string
+                  example: secret123
       responses:
         '201':
           description: User registered successfully
+        '400':
+          description: Invalid request data
+
   /auth/login:
     post:
+      tags:
+        - Auth
       summary: Log in a user
       requestBody:
         required: true
@@ -36,8 +56,29 @@ paths:
               properties:
                 email:
                   type: string
+                  example: john@example.com
                 password:
                   type: string
+                  example: secret123
       responses:
         '200':
           description: User logged in successfully
+        '400':
+          description: Invalid email or password
+        '401':
+          description: Unauthorized
+
+  /auth/logout:
+    post:
+      tags:
+        - Auth
+      summary: Log out the current user
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: User logged out successfully
+        '400':
+          description: Invalid token format
+        '401':
+          description: Unauthorized
