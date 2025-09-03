@@ -97,9 +97,7 @@ POST /auth/login
 
 Exemplo de Print:
 
-```mardown
 ![Login](docs/prints/login-user.png)
-```
 
 Retorna JWT válido:
 
@@ -126,12 +124,8 @@ Authorization: Bearer JWT_TOKEN_AQUI
 
 Exemplo de Print (Logout com sucesso):
 
-```mardown
 ![Logout com sucesso](docs/prints/logout-user-sucess.png)
-```
 
 Exemplo de Print (Token revogado):
 
-```mardown
 ![Token revogado](docs/prints/logout-user-token-revoked.png)
-```
