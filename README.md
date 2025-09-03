@@ -30,7 +30,7 @@ Este projeto implementa um sistema de autenticação completo, permitindo que us
 1. Clone o repositório:
 
 ```bash
-git clone <link-do-repo-github>
+git clone <https://github.com/Olival42/Autentication-User.git>
 cd <nome-do-repo>
 ```
 2. Instale as dependências:
@@ -83,7 +83,7 @@ Body:
 Exemplo de Print:
 
 ```mardown
-![Registro](docs/prints/register-user.png)
+![Registro](docs\prints\register-user.png)
 ```
 
 2. Login de Usuário
