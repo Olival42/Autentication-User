@@ -82,9 +82,7 @@ Body:
 
 Exemplo de Print:
 
-```mardown
-![Registro](https://raw.githubusercontent.com/Olival42/Autentication-User/refs/heads/main/docs/prints/login-user.png?token=GHSAT0AAAAAADDNZOCN3EAU7L47VBT7MK4K2FYEVFA)
-```
+![Registro](docs/prints/register-user.png)
 
 2. Login de Usuário
 
