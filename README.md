@@ -83,7 +83,7 @@ Body:
 Exemplo de Print:
 
 ```mardown
-![Registro](docs/prints/register-user.png)
+![Registro](https://raw.githubusercontent.com/usuario/repositorio/main/docs/prints/register-user.png)
 ```
 
 2. Login de Usuário
