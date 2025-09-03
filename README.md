@@ -30,8 +30,8 @@ Este projeto implementa um sistema de autenticação completo, permitindo que us
 1. Clone o repositório:
 
 ```bash
-git clone <https://github.com/Olival42/Autentication-User.git>
-cd <nome-do-repo>
+git clone https://github.com/Olival42/Autentication-User.git
+cd Autentication-User
 ```
 2. Instale as dependências:
 
@@ -43,11 +43,11 @@ npm install
 
 ```ini
 PORT=3000
-DATABASE_URL=postgres://user:password@localhost:5432/dbname
-JWT_SECRET=seu_secret
+DB_DIALECT=postgres
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/auth-user
+JWT_SECRET=supersecretkey
 JWT_EXPIRES_IN=1h
-REDIS_HOST=localhost
-REDIS_PORT=6379
+REDIS_URL=redis://localhost:6379
 ```
 
 4. Execute a aplicação:
