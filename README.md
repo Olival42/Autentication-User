@@ -111,8 +111,8 @@ Authorization: Bearer JWT_TOKEN_AQUI
 
 Exemplo de Print (Logout com sucesso):
 
-(docs/prints/logout-user-sucess.png)
+![Logout com sucesso](docs/prints/logout-user-sucess.png)
 
 Exemplo de Print (Token revogado):
 
-(docs/prints/logout-user-token-revoked.png)
+![Token revogado](docs/prints/logout-user-token-revoked.png)
