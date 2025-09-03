@@ -1,6 +1,6 @@
 # Projeto de Autenticação de Usuários com JWT e Redis
 
-Este projeto implementa um sistema de autenticação completo, permitindo que usuários se registrem, façam login, acessem rotas protegidas e realizem logout seguro. Ele utiliza **Node.js**, **Express**, **Sequelize (PostgreSQL)**, **JWT** e **Redis**.
+Este projeto implementa um sistema de autenticação completo, permitindo que usuários se registrem, façam login e realizem logout seguro. Ele utiliza **Node.js**, **Express**, **Sequelize (PostgreSQL)**, **JWT** e **Redis**.
 
 ---
 
@@ -8,7 +8,6 @@ Este projeto implementa um sistema de autenticação completo, permitindo que us
 
 - Registro de usuários (`POST /auth/register`)
 - Login de usuários (`POST /auth/login`) com geração de JWT
-- Rotas protegidas utilizando middleware de autenticação
 - Logout seguro com tokens armazenados na blacklist do Redis
 - Documentação Swagger (`/api-docs`) disponível
 
@@ -44,7 +43,7 @@ npm install
 ```ini
 PORT=3000
 DB_DIALECT=postgres
-DATABASE_URL=postgres://postgres:postgres@localhost:5432/auth-user
+DATABASE_URL=postgres://user:password@localhost:5432/dbname
 JWT_SECRET=supersecretkey
 JWT_EXPIRES_IN=1h
 REDIS_URL=redis://localhost:6379
@@ -82,7 +81,7 @@ Body:
 
 Exemplo de Print:
 
-![Registro](docs/prints/register-user.png)
+![Registro](docs/prints/register.png)
 
 2. Login de Usuário
 
@@ -97,7 +96,7 @@ POST /auth/login
 
 Exemplo de Print:
 
-![Login](docs/prints/login-user.png)
+![Login](docs/prints/login.png)
 
 Retorna JWT válido:
 
@@ -124,8 +123,8 @@ Authorization: Bearer JWT_TOKEN_AQUI
 
 Exemplo de Print (Logout com sucesso):
 
-![Logout com sucesso](docs/prints/logout-user-sucess.png)
+![Logout com sucesso](docs/prints/logout.png)
 
 Exemplo de Print (Token revogado):
 
-![Token revogado](docs/prints/logout-user-token-revoked.png)
+![Token revogado](docs/prints/token-revoked.png)
