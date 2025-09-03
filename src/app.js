@@ -35,7 +35,7 @@ async function createApp() {
     app.use('/auth', authRoutes(registerUserUseCase, loginUserUseCase, redisBlacklistRepo, jwtProvider));
 
     try {
-        const swaggerDocument = yaml.load(fs.readFileSync('./docs/swagger.yml', 'utf8'));
+        const swaggerDocument = yaml.load(fs.readFileSync('./docs/swagger/swagger.yml', 'utf8'));
         app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     } catch (error) {
         console.error('Failed to load swagger.yml file:', error);
