@@ -26,7 +26,7 @@ async function createApp() {
     const userRepository = new SequelizeUserRepository();
     const jwtProvider = new JWTProvider();
 
-    const redisClient = await connectRedis(); // Agora dentro de async
+    const redisClient = await connectRedis()
     const redisBlacklistRepo = new RedisTokenBlackListRepository(redisClient);
 
     const registerUserUseCase = new RegisterUser(userRepository, jwtProvider);

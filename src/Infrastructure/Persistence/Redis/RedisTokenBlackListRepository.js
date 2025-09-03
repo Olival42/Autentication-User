@@ -1,26 +1,28 @@
-const { redisClient } = require('./RedisClient');
-const jwt = require('jsonwebtoken');
-const config = require('src/config');
+const jwt = require("jsonwebtoken");
 
 class RedisTokenBlacklistRepository {
-    async add(token) {
-        try {
-            const payload = jwt.decode(token);
-            if (!payload || !payload.exp) return;
+  constructor(redisClient) {
+    this.redisClient = redisClient;
+  }
 
-            const ttl = payload.exp - Math.floor(Date.now() / 1000);
-            if (ttl > 0) {
-                await redisClient.setEx(token, ttl, 'revoked');
-            }
-        } catch (err) {
-            console.error('Failed to add token to blacklist', err);
-        }
-    }
+  async add(token) {
+    try {
+      const payload = jwt.decode(token);
+      if (!payload || !payload.exp) return;
 
-    async exists(token) {
-        const exists = await redisClient.exists(token);
-        return exists === 1;
+      const ttl = payload.exp - Math.floor(Date.now() / 1000);
+      if (ttl > 0) {
+        await this.redisClient.setEx(token, ttl, "revoked");
+      }
+    } catch (err) {
+      console.error("Failed to add token to blacklist", err);
     }
+  }
+
+  async exists(token) {
+    const exists = await this.redisClient.exists(token);
+    return exists === 1;
+  }
 }
 
 module.exports = RedisTokenBlacklistRepository;
