@@ -32,12 +32,12 @@ Este projeto implementa um sistema de autenticação completo, permitindo que us
 ```bash
 git clone <link-do-repo-github>
 cd <nome-do-repo>
+Instale as dependências:
 
-2. Instale as dependências:
-
+bash
+Copiar código
 npm install
-
-3. Configure o arquivo .env com as variáveis necessárias:
+Configure o arquivo .env com as variáveis necessárias:
 
 PORT=3000
 DATABASE_URL=postgres://user:password@localhost:5432/dbname
@@ -46,25 +46,20 @@ JWT_EXPIRES_IN=1h
 REDIS_HOST=localhost
 REDIS_PORT=6379
 
-4. Execute a aplicação:
+Execute a aplicação:
 
 npm start
 
-5. Acesse a documentação Swagger:
+Acesse a documentação Swagger:
 
 http://localhost:3000/api-docs
 
----
+Fluxo de Autenticação
+1. Registro de Usuário
+POST /auth/register
 
-## Fluxo de Autenticação
+Body:
 
-### 1. Registro de Usuário
-
-**POST** `/auth/register`
-
-**Body:**
-
-```json
 {
   "name": "Aluno Exemplo",
   "email": "aluno@exemplo.com",
@@ -73,10 +68,7 @@ http://localhost:3000/api-docs
 
 Exemplo de Print:
 
-![Registro](docs/prints/register-user.png)
-
 2. Login de Usuário
-
 POST /auth/login
 
 Body:
@@ -88,8 +80,6 @@ Body:
 
 Exemplo de Print:
 
-![Login](docs/prints/login-user.png)
-
 Retorna JWT válido:
 
 {
@@ -99,20 +89,15 @@ Retorna JWT válido:
     "name": "Aluno Exemplo",
     "email": "aluno@exemplo.com"
   }
-}
 
-Logout Seguro
 
+3. Logout Seguro
 POST /auth/logout
 
 Header:
 
 Authorization: Bearer JWT_TOKEN_AQUI
-
 Exemplo de Print (Logout com sucesso):
 
-![Logout com sucesso](docs/prints/logout-user-sucess.png)
 
 Exemplo de Print (Token revogado):
-
-![Token revogado](docs/prints/logout-user-token-revoked.png)
