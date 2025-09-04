@@ -87,6 +87,8 @@ Exemplo de Print:
 
 POST /auth/login
 
+Body:
+
 ```json
 {
   "email": "aluno@exemplo.com",
