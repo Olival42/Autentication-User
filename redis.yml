@@ -4,6 +4,6 @@ services:
     container_name: banco_cache_redis
     restart: always
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT}:6379"
     volumes:
       - ./redis-data:/data

@@ -47,11 +47,13 @@ DATABASE_URL=postgres://user:password@localhost:5432/dbname
 JWT_SECRET=supersecretkey
 JWT_EXPIRES_IN=1h
 REDIS_URL=redis://localhost:6379
+REDIS_PORT=6379
 ```
 
 4. Execute a aplicação:
 
 ```bash
+docker-compose -f redis.yml up -d
 npm start
 ```
 
